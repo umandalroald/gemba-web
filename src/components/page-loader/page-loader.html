@@ -1,0 +1,112 @@
+<dom-module id='icon-button'>
+  <template>
+    <style>
+      :host {
+        /*@apply(--pd-xxlg);  */
+      }
+
+      :host[active] paper-material {
+        background: white;
+        filter: grayscale(0%);
+      }
+
+      paper-material {
+        border-radius: 5px;
+        filter: grayscale(100%);
+        transition: filter 0.2s ease;
+        @apply --layout-vertical;
+        @apply --layout-center;
+        cursor: pointer;
+        color: red;
+      }
+
+      paper-material:hover {
+        background: white;
+        filter: grayscale(0%);
+      }
+
+      h3 {
+        margin-top:-15px;
+      }
+
+    </style>
+
+    <paper-material on-mouseover='raise' on-mouseout='lower' animated elevation='[[elevation]]'>
+      <img src=[[icon]] /></img>
+      <h3>[[label]]</h3>
+    </paper-material>
+  </template>
+
+  <script>
+    {
+      // const baseUrl = 'node_modules/';
+      // Polymer.Utils.importHref(`${baseUrl}@startup-boilerplate/inkling/dist/inkling.html`);
+      //
+      // Polymer.Utils.importHref(`${baseUrl}@polymer/paper-material/paper-material.html`);
+      // Polymer.Utils.importHref(`${baseUrl}@polymer/iron-flex-layout/iron-flex-layout.html`);
+
+      // import '@polymer/polymer/polymer-element.html';
+      // import '@startup-boilerplate/inkling/dist/inkling.html';
+      //
+      // import '@polymer/paper-material/paper-material.html';
+      // import '@polymer/iron-flex-layout/iron-flex-layout.html';
+
+      System.import('@polymer/polymer/polymer-element.html');
+      System.import('@startup-boilerplate/inkling/dist/inkling.html');
+
+      System.import('@polymer/paper-material/paper-material.html');
+      System.import('@polymer/iron-flex-layout/iron-flex-layout.html');
+
+
+      class IconButton extends Polymer.Element {
+
+        static get is() { return 'icon-button' }
+        static get config() {
+          return {
+            properties: {
+              elevation: {
+                type: Number,
+                value: 0
+              },
+              active: {
+                type: Boolean,
+                value: false,
+                reflectToAttribute: true
+              },
+              icon: String,
+              label: String,
+            }
+          };
+        }
+
+
+        connectedCallback() {
+          super.connectedCallback();
+
+          if(this.active) {
+            this.elevation = 4;
+          } else {
+            this.elevation = 0;
+          }
+        }
+
+
+        raise() {
+          if(!this.active) {
+            this.elevation = 4;
+          }
+        }
+
+
+        lower() {
+          if(!this.active) {
+            this.elevation = 0;
+          }
+        }
+
+      }
+
+      customElements.define(IconButton.is, IconButton);
+    }
+  </script>
+</dom-module>

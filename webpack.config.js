@@ -15,6 +15,11 @@ module.exports = {
     publicPath: '/build/',
     filename: 'build.js',
   },
+  devServer: {
+      historyApiFallback:{
+          index:'build/index.html'
+      },
+  },
   resolveLoader: {
     modules: ['node_modules'],
   },
@@ -30,7 +35,16 @@ module.exports = {
       {
         test: /\.html$/,
         loader: 'wc-loader'
-      }
+      },
+      // {
+      //   test: /\.js$/,
+      //   exclude: /(node_modules|bower_components|src)/,
+      //   loader: 'babel-loader',
+      //   babelrc: false,
+      //   query: {
+      //     presets: ['es2015']
+      //   }
+      // }
       // ,
       // {
       //     test: /index\.html$/,

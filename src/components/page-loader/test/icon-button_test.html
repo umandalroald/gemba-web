@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>confirm-input test</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../page-loader.html">
+  </head>
+  <body>
+    <test-fixture id="basic">
+      <template>
+        <page-loader></page-loader>
+      </template>
+    </test-fixture>
+
+    <script>
+      describe('page-loader', function() {
+        var confirmInput;
+
+        beforeEach(function() {
+          confirmInput = fixture('basic');
+          console.log(confirmInput);
+        });
+
+        context('common tests', function() {
+          it('should not display the confirm button by default', function() {
+            // expect(confirmInput).to.have.property('showButton', true);
+            expect(confirmInput.showButton).to.be.equal(true);
+          });
+
+          it('should display the confirm button with text filled in', function() {
+            // clock.setAttribute('show-buttons', 'true');
+            // expect(clock.showButtons).to.be.equal(false);
+            // expect(clock.querySelector('.buttons').attributes).to.not.have.ownProperty('visible');
+            confirmInput.setAttribute('show-button', 'false');
+            expect(confirmInput.showButton).to.be.equal(false);
+            // expect(confirmInput).to.have.property('isHidden', false);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
