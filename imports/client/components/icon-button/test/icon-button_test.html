@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>confirm-input test</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../confirm-input.html">
+  </head>
+  <body>
+    <test-fixture id="basic">
+      <template>
+        <confirm-input></confirm-input>
+      </template>
+    </test-fixture>
+
+    <script>
+      describe('confirm-input', function() {
+        var confirmInput;
+
+        beforeEach(function() {
+          confirmInput = fixture('basic');
+          console.log(confirmInput);
+        });
+
+        context('common tests', function() {
+          it('should not display the confirm button by default', function() {
+            // expect(confirmInput).to.have.property('showButton', true);
+            expect(confirmInput.showButton).to.be.equal(true);
+          });
+
+          it('should display the confirm button with text filled in', function() {
+            // clock.setAttribute('show-buttons', 'true');
+            // expect(clock.showButtons).to.be.equal(false);
+            // expect(clock.querySelector('.buttons').attributes).to.not.have.ownProperty('visible');
+            confirmInput.setAttribute('show-button', 'false');
+            expect(confirmInput.showButton).to.be.equal(false);
+            // expect(confirmInput).to.have.property('isHidden', false);
+          });
+        });
+
+        // myObj.on('some_event',function(){
+        //   // perform any other assertions you want here
+        //   done();
+        // });
+
+      });
+        // suite('confirm-input', function() {
+        // setup(function() {
+        //   var element = fixture('basic');
+        // });
+        //
+        // test('instantiating the element works', function() {
+        //   assert.equal(element.is, 'confirm-input');
+        // });
+        //
+        // test('confirm button is displayed', function() {
+        //   // Polymer.dom(myEl.root).querySelector('button').click();
+        //   // element.isHidden.should.be.false;
+        //   element.should.have.property('isHidden');
+        //   // element.should.have.property('isHidden', false);
+        //
+        // });
+
+        // test('confirm button is firing event', function() {
+        //   var element = fixture('basic');
+        //   assert.equal(element.is, 'confirm-input');
+        // });
+      // });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "plugins": {
+    "sauce": {
+      "username": "AndreasSalarium",
+      "accessKey": "3df0cc77-0127-4483-964b-38d223e0f1a0",
+      "disabled": false,
+      "browsers": [{
+          "browserName": "microsoftedge",
+          "platform": "Windows 10",
+          "version": ""
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "public": {
+    "cloudinary": {
+      "cloud_name": "djkegjjwb"
+    }
+  },
+  "facebook": {
+    "appId": "1487921041533128",
+    "secret": "b93b1c33d6a2fdab8d20785693982d95"
+  },
+  "prerender": {
+    "token": "shcAJhf1RQNPpqdc7aBA"
+  },
+  "cloudinary": {
+    "cloud_name": "djkegjjwb",
+    "api_key": "164899291251532",
+    "api_secret": "dhEkzagLq7KiCNfCax1-sE7jfuw"
+  },
+  "email": {
+    "apiKey": "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"
+  },
+  "billing": {
+      "site": "pigments-test",
+      "apiKey": "test_Wt191edm5VTlEg3qO3HwJBwmKpzgHIGz"
+  },
+  "crm": {
+    "apiKey": "878c949b-0d6d-4534-bd17-9e4a2be053a8"
+  }
+
+
+}
