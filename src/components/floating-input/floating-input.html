@@ -1,0 +1,99 @@
+<!-- <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html"> -->
+
+<!--
+`floating-input`
+
+
+@demo demo/index.html
+-->
+
+<dom-module id="floating-input">
+  <template>
+    <style include='ink-variables ink-reset ink-flex-grid ink-colors ink-layout-helpers ink-typography'></style>
+    <style include='ink-theme-default'></style>
+    <style>
+      :host {
+        @apply(--layout-horizontal);
+        @apply(--flx-ctr-ctr);                
+        padding: 0px 10px;
+        background: rgba(0,0,0,0.1);
+      }
+
+      img {
+        /*@apply(--layout-self-end);*/
+      }
+
+      paper-input {
+        @apply(--layout-flex);
+        /*--paper-input-container-color: blue;*/
+        --paper-input-container-focus-color: blue;
+        /*--paper-input-container-color: blue;*/
+        --paper-input-container-label: {
+          /*color: blue;*/
+          /*height: 0;*/
+          /*opacity: 0;*/
+        }
+        --paper-input-container-label-focus: {
+          /*height: 0;*/
+          /*opacity: 1;*/
+        }
+        --paper-input-container-label-floating: {
+          /*height: auto;*/
+        }
+        --paper-input-container-underline: {
+          padding: 0;
+        }
+        --paper-input-container-underline: {
+          opacity: 0 !important;
+        }
+        --paper-input-container-underline-focus: {
+          opacity: 0 !important;
+        }
+      }
+
+      * {
+        display: inline-block;
+      }
+    </style>
+    <paper-input value={{value}} label="YOUR NAME" placeholder="WHAT'S YOUR NAME?">
+
+      <!-- <div suffix>$</div> -->
+    </paper-input>
+    <!-- <div>[[isEmpty(value)]]</div> -->
+    <!-- <div>[[showButton]]</div> -->
+    <div hidden=[[!confirms]]>
+      <img on-tap='floating' hidden=[[isEmpty(value)]] src='/icon.png' /></img>
+    </div>
+  </template>
+
+  <script>
+    require('@polymer/polymer/polymer.html');
+    require('@startup-boilerplate/inkling/dist/inkling.html');
+
+    require('@polymer/paper-input/paper-input.html');
+    require('@polymer/iron-flex-layout/iron-flex-layout.html');
+
+
+    Polymer({
+
+      is: 'floating-input',
+
+      properties: {
+        confirms: {
+          type: Boolean,
+          value: false
+        },
+        showButton: Boolean,
+      },
+      isEmpty: function(value) {
+        this.showButton = !value;
+        return !value;
+      },
+      floating: function() {
+        this.fire('floatinged');
+      }
+    });
+  </script>
+</dom-module>

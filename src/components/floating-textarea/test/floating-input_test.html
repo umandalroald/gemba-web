@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>floating-input test</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../floating-input.html">
+  </head>
+  <body>
+    <test-fixture id="basic">
+      <template>
+        <floating-input></floating-input>
+      </template>
+    </test-fixture>
+
+    <script>
+      describe('floating-input', function() {
+        var floatingInput;
+
+        beforeEach(function() {
+          floatingInput = fixture('basic');
+          console.log(floatingInput);
+        });
+
+        context('common tests', function() {
+          it('should not display the floating button by default', function() {
+            // expect(floatingInput).to.have.property('showButton', true);
+            expect(floatingInput.showButton).to.be.equal(true);
+          });
+
+          it('should display the floating button with text filled in', function() {
+            // clock.setAttribute('show-buttons', 'true');
+            // expect(clock.showButtons).to.be.equal(false);
+            // expect(clock.querySelector('.buttons').attributes).to.not.have.ownProperty('visible');
+            floatingInput.setAttribute('show-button', 'false');
+            expect(floatingInput.showButton).to.be.equal(false);
+            // expect(floatingInput).to.have.property('isHidden', false);
+          });
+        });
+
+        // myObj.on('some_event',function(){
+        //   // perform any other assertions you want here
+        //   done();
+        // });
+
+      });
+        // suite('floating-input', function() {
+        // setup(function() {
+        //   var element = fixture('basic');
+        // });
+        //
+        // test('instantiating the element works', function() {
+        //   assert.equal(element.is, 'floating-input');
+        // });
+        //
+        // test('floating button is displayed', function() {
+        //   // Polymer.dom(myEl.root).querySelector('button').click();
+        //   // element.isHidden.should.be.false;
+        //   element.should.have.property('isHidden');
+        //   // element.should.have.property('isHidden', false);
+        //
+        // });
+
+        // test('floating button is firing event', function() {
+        //   var element = fixture('basic');
+        //   assert.equal(element.is, 'floating-input');
+        // });
+      // });
+    </script>
+  </body>
+</html>

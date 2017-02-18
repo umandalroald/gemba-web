@@ -1,0 +1,106 @@
+<dom-module id='app-shell'>
+  <template>
+
+    <style>
+      :host {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+    </style>
+
+    <app-location route={{route}} path={{path}}></app-location>
+    <app-route
+      pattern='/:page'
+      route={{route}}
+      data={{data}}
+      tail={{tail}}>
+    </app-route>
+
+    <iron-lazy-pages attr-for-selected='data-route' selected=[[path]]>
+      <clients-daily-view
+        first-name=[[firstName]]
+        data-route='/yolo'>
+      </clients-daily-view>
+      <!-- data-path='clients-daily-view.html'> -->
+
+      <clients-daily-view
+        first-name=[[firstName]]
+        data-route='/clients-daily'>
+      </clients-daily-view>
+      <!-- data-path='clients-daily-view.html'> -->
+
+      <clients-monthly-view
+        first-name=[[firstName]]
+        data-route='/clients-monthly'>
+      </clients-monthly-view>
+      <!-- data-path='clients-monthly-view.html'> -->
+    </iron-lazy-pages>
+
+  </template>
+
+  <script>
+    // import AuthService from 'utils/AuthService';
+    import '@polymer/polymer/polymer-element.html';
+    import '@polymer/app-route/app-route.html';
+    import '@polymer/app-route/app-location.html';
+    import '@polymer/iron-lazy-pages/iron-lazy-pages.html';
+    
+    //     const Auth0Lock = require('auth0-lock');
+    {
+      class AppShell extends Polymer.Element {
+
+        static get is() { return 'app-shell' }
+        static get config() {
+          return {
+            observers: [
+              '_loadViewDependency(data)'
+            ],
+            listeners: {
+              'route-selected': 'changeRoute'
+            },
+          };
+        }
+
+        connectedCallback() {
+          super.connectedCallback();
+
+          // this.lock = new AuthService('OTP51Dh8BkgRy2eDA5sfNKXilKsM0Ltz', 'productteam.au.auth0.com');
+          // this.loggedIn();
+          // // Add callback for lock `authenticated` event
+          // this.lock.on('authenticated', this._doAuthentication.bind(this))
+          // // binds login functions to keep this context
+          // this.login = this.login.bind(this)
+
+          // System.import('./clients-daily-view.html');
+          // require('./clients-daily-view.html');
+        }
+
+        changeRoute(e) {
+          // tells route path where to go
+          this.path = e.detail.path;
+        }
+
+        _loadViewDependency(path) {
+          switch (path.page) {
+              case 'clients-daily':
+                require.ensure([], function(require) {
+                  require('./clients-daily-view.html');
+                }, 'clients-daily-view');
+
+                break;
+              case 'clients-monthly':
+                require.ensure([], function(require) {
+                  require('./clients-monthly-view.html');
+                }, 'clients-monthly-view');
+          }
+        }
+
+      }
+
+      customElements.define(AppShell.is, AppShell);
+    }
+  </script>
+</dom-module>
