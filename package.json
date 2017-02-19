@@ -15,14 +15,12 @@
     "moment": "^2.17.1"
   },
   "devDependencies": {
-    "wc-loader": "1.0.11",
-    "webpack": "2.2.0",
-    "webpack-dev-server": "2.2.0",
     "cross-env": "^1.0.6",
     "css-loader": "^0.23.1",
     "file-loader": "^0.8.4",
     "fs-extra": "^0.30.0",
-    "html-webpack-plugin": "2.24.1",
-    "indexhtml-webpack-plugin": "^0.1.9"
+    "wc-loader": "*",
+    "webpack": "2.2.0",
+    "webpack-dev-server": "2.2.0"
   }
 }
