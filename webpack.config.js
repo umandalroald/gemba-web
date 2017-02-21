@@ -1,5 +1,3 @@
-// import { path } from 'path';
-// import { webpack } from 'webpack';
 var path = require('path');
 var webpack = require('webpack');
 
@@ -33,14 +31,6 @@ module.exports = {
         test: /\.html$/,
         loader: 'wc-loader'
       },
-      // {
-      //   test: /\.js$/,
-      //   exclude: /(node_modules|bower_components)/,
-      //   loader: 'babel-loader!wc-loader',
-      //   query: {
-      //     presets: ['es2015']
-      //   }
-      // }
     ],
   },
   devtool: 'eval-source-map'

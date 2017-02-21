@@ -1,8 +1,9 @@
-var WebpackDevServer = require('webpack-dev-server'),
-    webpack = require('webpack'),
-    config = require('../webpack.config');
-    path = require('path');
-    // require('./prepare');
+var
+	WebpackDevServer = require('webpack-dev-server'),
+	webpack = require('webpack'),
+	config = require('../webpack.config');
+	// path = require('path');
+		// require('./prepare');
 
 // var excludeEntriesToHotReload = (config.excludeEntriesToHotReload || []);
 //
@@ -23,12 +24,12 @@ var WebpackDevServer = require('webpack-dev-server'),
 var compiler = webpack(config);
 
 var server = new WebpackDevServer(compiler, {
-  historyApiFallback: true,
-  compress: true,
-  inline: true,
-  hot: true,
-  // contentBase: path.join(__dirname, '../build'),
-  // noInfo: true,
+	historyApiFallback: true,
+	compress: true,
+	inline: true,
+	hot: true,
+	// contentBase: path.join(__dirname, '../build'),
+	// noInfo: true,
 });
 
 server.listen(3000);

@@ -1,4 +1,3 @@
+// import 'webcomponentsjs/webcomponents-loader.js';
 import './views/_app-shell.html';
-
-var bla = 'bla'
-console.log(`${bla} yolo`);
+// import('webcomponentsjs/webcomponents-loader.js');
