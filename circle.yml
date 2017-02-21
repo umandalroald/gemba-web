@@ -12,8 +12,6 @@ machine:
 
 ## Customize dependencies
 dependencies:
-  pre:
-    - npm install # install all node packages
 
   # we automatically cache and restore many dependencies between
   # builds. If you need to, you can add custom paths to cache:
@@ -23,8 +21,7 @@ dependencies:
 ## Customize test commands
 test:
   override:
-    - polymer lint # use polylint from the polymer CLI for testing
-    # - eslint
+    - npm run lint # use polylint from the polymer CLI for testing
 
 
 # ## Customize deployment commands
