@@ -1,4 +1,4 @@
-### Linting
+## Linting
 
 The entire project is being linted locally and upon pushing to Circle CI. First, install the Polymer CLI and ESLint for local linting:
 
@@ -8,7 +8,7 @@ npm install -g eslint
 npm install -g eslint-plugin-html
 ```
 
-### Sublime
+### Atom
 After this, install the code linting plugins:
 ```
 apm install linter
