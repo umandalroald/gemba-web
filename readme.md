@@ -8,14 +8,19 @@ npm install -g eslint
 npm install -g eslint-plugin-html
 ```
 
-
+### Sublime
 After this, install the code linting plugins:
 ```
 apm install linter
 apm install polymer-atom
 apm install linter-eslint
+```
 
-
+### VSCode
+After this, install the code linting plugins:
+```
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension polymer.polymer-ide (Provides linting, autocompletion)
 ```
 
 To lint the project locally:
